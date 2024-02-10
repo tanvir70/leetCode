@@ -5,20 +5,8 @@ class Solution {
 
         for ( int i = 0; i < flowerbed.length; i++){
             if (flowerbed[i] == 0){
-                int previous;
-                if ( i == 0 ){
-                    previous = 0;
-                } else {
-                    previous = flowerbed[i - 1];
-                }
-                int next;
-
-                if ( i == flowerbed.length - 1){
-                    next = 0;
-                }else {
-                    next = flowerbed[i + 1];
-                }
-
+               int previous = ( i == 0) ? 0 : flowerbed[i - 1];
+               int next = ( i == flowerbed.length - 1) ? 0 : flowerbed[i + 1];
                 if ( previous == 0 && next == 0){
                     flowerbed[i] = 1;
                     count++;
