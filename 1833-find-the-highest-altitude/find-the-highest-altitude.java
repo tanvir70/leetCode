@@ -3,11 +3,9 @@ class Solution {
         int maxAltitude = 0;
          int currentSum = 0;
 
-        for(int i = 0; i < gain.length; i++){
-            currentSum += gain[i];
-            if (currentSum > maxAltitude){
-                maxAltitude = currentSum;
-            }
+        for (int altitudeGain : gain) {
+            currentSum += altitudeGain;
+            maxAltitude = Math.max(maxAltitude, currentSum);
         }
         return maxAltitude;
     }
