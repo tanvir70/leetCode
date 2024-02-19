@@ -1,27 +1,25 @@
 class Solution {
     public int equalPairs(int[][] grid) {
-       int n = grid.length;
         int count = 0;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (isEqualRowColumnPair(grid, i, j, n)) {
+        for(int i = 0; i < grid[0].length; i++) {
+            int[] n = new int[grid[0].length];
+            int s = 0;
+
+            // Copy the elements of the i-th column into the array 'n'
+            for(int[] row : grid) {
+                n[s] = row[i];
+                s++;
+            }
+
+            // Compare the array 'n' with each row in the grid
+            for(int[] row : grid) {
+                if(Arrays.equals(n, row)) {
                     count++;
                 }
             }
         }
 
         return count;
-    }
-
-    private static boolean isEqualRowColumnPair(int[][] grid, int row, int col, int n) {
-        // Check if the row and column have the same elements in the same order
-        for (int k = 0; k < n; k++) {
-            if (grid[row][k] != grid[k][col]) {
-                return false;
-            }
-        }
-        return true;
-      
     }
 }
