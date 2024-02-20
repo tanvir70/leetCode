@@ -1,25 +1,21 @@
 class Solution {
     public int equalPairs(int[][] grid) {
-        int count = 0;
+       int count = 0;
+       int n = grid[0].length;
 
-        for(int i = 0; i < grid[0].length; i++) {
-            int[] n = new int[grid[0].length];
-            int s = 0;
+       for (int i = 0; i < n; i++){
+           int[] temp = new int[n];
 
-            // Copy the elements of the i-th column into the array 'n'
-            for(int[] row : grid) {
-                n[s] = row[i];
-                s++;
-            }
+           for (int j = 0; j < grid.length; j++){
+               temp[j] = grid[j][i];
+           }
 
-            // Compare the array 'n' with each row in the grid
-            for(int[] row : grid) {
-                if(Arrays.equals(n, row)) {
-                    count++;
-                }
-            }
-        }
-
-        return count;
+           for(int k =0; k < grid.length; k++){
+               if ( Arrays.equals(temp,grid[k])){
+                   count++;
+               }
+           }
+       }
+       return count;
     }
 }
