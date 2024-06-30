@@ -20,9 +20,7 @@ class Solution {
         for (int element : commonElements) {
             result[index++] = element;
         }
-   
-        Arrays.sort(result);
-        
+           
         return result;
     }
 }
