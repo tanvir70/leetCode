@@ -1,15 +1,12 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-        int max = -1000000;
-          int sum = 0;
-        for (int i = 0; i < nums.length; i++){
-            sum += nums[i];
-            max = Math.max(sum,max);
-
-            if ( sum < 0){
-                sum = 0;
-            }
+        int max = nums[0];  // Initialize max to the first element
+        int sum = nums[0];  // Initialize sum to the first element
+        
+        for (int i = 1; i < nums.length; i++) {  // Start loop from the second element
+            sum = Math.max(nums[i], sum + nums[i]);  // Update sum to be the maximum of the current element or current element + sum
+            max = Math.max(max, sum);  // Update max to be the maximum of max and sum
         }
-        return max;
+        return max;  // Return the maximum subarray sum found
     }
 }
